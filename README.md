@@ -23,4 +23,4 @@ FizzBuzz!
 Number: 7
 7
 Number: 133
-133```
+133
