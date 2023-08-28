@@ -1,12 +1,11 @@
 const readline = require('readline');
 
-const createRL = () =>
-  readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
+const createRL = () => readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-const hello = (() => {
+(() => {
   console.log('Welcome to Fizz Buzz!');
   console.log('Submit a number and get an answer!');
 })();
@@ -14,16 +13,15 @@ const hello = (() => {
 const fizzBuzz = (number) => {
   if (number % 3 === 0 && number % 5 === 0) {
     return 'FizzBuzz';
-  } else if (number % 3 === 0) {
+  } if (number % 3 === 0) {
     return 'Fizz';
-  } else if (number % 5 === 0) {
+  } if (number % 5 === 0) {
     return 'Buzz';
-  } else {
-    return number.toString();
   }
+  return number.toString();
 };
 
-const handleNumberInput = () => {
+const handleNumberInput = (() => {
   const rl = createRL();
   rl.question('Number (or "exit" to close Fizz Buzz): ', (input) => {
     if (input.toLowerCase() === 'exit') {
@@ -40,6 +38,6 @@ const handleNumberInput = () => {
     rl.close();
     handleNumberInput();
   });
-};
+})();
 
-handleNumberInput();
+module.exports = fizzBuzz;
